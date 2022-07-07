@@ -13,22 +13,19 @@
 <body>
 	<div id="wrapper">
 		<div class="container">
-			<div class="row d-flex justify-content-left">
-				<div class="kiri mb-3">
-					<h1 class="text-left mt-5 fw-bolder">UTS Data Mining (Metode K-NN)</h1>
-				</div>
-			</div>
-				<h8 class="text-justify mt-4 mb-4">Studi Kasus:  Sebuah Lembaga perbankan ingin mengembangkan system prediksi penerimaan ajuan pinjaman nasabah berdasarkan 2 atribut yaitu umur (data x), credit rating(data y) dengan kategori 'Terima' dan 'Tolak'. </h8>
+			<h2 class="text-center mt-5 fw-bolder">UTS Data Mining (Metode K-NN)</h2>
+			<p class="text-center">Studi Kasus:  Sebuah Lembaga perbankan ingin mengembangkan system prediksi penerimaan ajuan pinjaman nasabah berdasarkan 2 atribut yaitu umur (data x), credit rating(data y) dengan kategori 'Terima' dan 'Tolak'.</b></p>
 			
-			<!--batas kiri-->
+			<div class="row d-flex justify-content-center">
+
+			<!-- tabel kiri -->
 			<!-- data awal -->
-			<div class="kiri col-6 mb-3">
+			<div class="kiri col-sm-12 col-lg-6 mb-3">
 				<div class="wrap table-responsive shadow rounded p-3 mt-3 mx-4">
-					<h4 class="mb-3 text-center">Data Awal</h4>
+					<h4 class="mb-4 fw-bolder">Data Awal</h4>
 
 					<?php require('komponen/tambah.php'); ?>
 					<table class="table table-striped table-bordered responsive-utilities text-center">
-
 						<thead>
 							<tr>
 								<th scope="col">No</th>
@@ -49,7 +46,7 @@
 							$id_desc = mysqli_fetch_assoc($resultid);
 							$i=1;
 
-							//foreach
+						// foreach
 							foreach ($result as $data) { ?>
 								<tr>
 									<td><?php echo $i++?></td>
@@ -75,32 +72,27 @@
 					</table>
 				</div>
 			</div>
-			<!-- end batas kiri -->
+			<!-- end tabel kiri -->
+
 			
-			<div class="col-10"></div>
 
 			<!-- data yang diolah -->
-			<!-- batas kanan -->
-			<div class="kanan col-6 mb-3">
+			<!-- tabel kanan -->
+			<div class="kanan col-sm-12 col-lg-6 mb-3">
 				<div class="wrap table-responsive shadow rounded p-3 mt-3 mx-4">
-					<h4 class="mb-4 text-center">Hitung Data</h4>
+					<h4 class="mb-4 fw-bolder">Hitung Data</h4>
 
 					<?php require('komponen/data-test.php'); ?>
 
-					<a class="btn btn-primary mb-3" style="font-size: 14px;" href="index.php">Reset</a>
-
+					<a class="btn btn-danger mb-3" style="font-size: 14px;" href="index.php">Reset</a>
 					<?php
 					if(isset($_GET['opsi'])) : 
 
 						if($_GET['opsi']=="hitung") : ?>
-							<p>Nilai data x2 = <b><?php echo $_POST['data_x2']?></b> 
-							<br>
-							   Nilai data y2 = <b><?php echo $_POST['data_y2']?></b> 
-							<br>
-							   Nilai K  = <b><?php echo $_POST['K']?></b> </p>
+							<p>Nilai data x2 = <b> <?php echo $_POST['data_x2']?></b> &nbsp&nbsp&nbsp&nbsp Nilai data y2 = <b><?php echo $_POST['data_y2']?></b>  &nbsp&nbsp&nbsp&nbsp Nilai K = <b><?php echo $_POST['K']?></b> </p>
 							<table class="table table-striped table-bordered responsive-utilities text-center">
 								<thead>
-									<tr class="color-">
+									<tr>
 										<th scope="col">Data x</th>
 										<th scope="col">Data y</th>
 										<th scope="col">Nilai Jarak</th>
@@ -109,7 +101,6 @@
 
 								<tbody>
 									<?php
-									$arraylihat = array();
 									$query= "SELECT * FROM tb_data";
 									$result=mysqli_query($db, $query);
 									$i=1;
@@ -121,7 +112,7 @@
 											<td><?php echo $dataOlah['data_y']?></td>
 											<?php 
 											$jarak = sqrt(pow($dataOlah['data_x']-$_POST['data_x2'],2)+pow($dataOlah['data_y']-$_POST['data_y2'],2));
-											array_push($arraylihat,$jarak);
+											
 											$query = "UPDATE tb_data SET hitung = '$jarak' WHERE id = $i";
 											$update = mysqli_query($db,$query);
 											$i++;
@@ -134,14 +125,13 @@
 							</table>
 						</div>
 					</div>
-		
-						<!-- end batas kanan -->
+					<!-- end tabel kanan -->
 
 
-						<div class="col-6 mb-4">
+					<div class="col-sm-12 col-lg-6 mb-4">
 						<div class="wrap table-responsive shadow rounded p-3 mt-3 mx-4">
 							<h4 class="mb-4 fw-bolder">Hasil Data K= <?php echo $_POST['K']?></h4>
-							
+
 							<table class="table table-striped table-bordered responsive-utilities text-center">
 								<thead>
 									<tr>
@@ -151,17 +141,15 @@
 										<th scope="col" class="col-4">Kategori</th>
 									</tr>
 								</thead>
-
 								<tbody>
 									<?php
-									// array class
+									// disini class array
 									$arrayClassTerima = array();
 									$arrayClassTolak = array();
 
 									$K = (int)$_POST['K'];
 									$query= "SELECT * FROM tb_data ORDER BY hitung ASC LIMIT 0,$K";
 									$k= mysqli_query($db, $query);
-
 									// foreach
 									foreach ($k as $batasK) { ?>
 										<tr>
@@ -183,15 +171,16 @@
 								</tbody>
 							</table>
 
-							<?php
 
+							<?php
 							// hasil final
 							$jumlahTerima = count($arrayClassTerima);
 							$jumlahTolak = count($arrayClassTolak);
 							$kategori = ($jumlahTerima>$jumlahTolak) ? "Terima" : "Tolak";
 							?>
 
-							<h4 class="fw-bolder" style="margin-top: 60px !important;">Hasil Kategori</h4>
+
+							<h4 class="fw-bolder" style="margin-top: 60px !important;">Hasil Hitung</h4>
 							<table class="table table-striped table-bordered responsive-utilities text-center">
 								<thead>
 									<tr>
@@ -200,6 +189,7 @@
 										<th scope="col" class="col-4">kategori</th>
 									</tr>
 								</thead>
+
 								<tbody>
 									<tr>
 										<td><?php echo $_POST['data_x2']?></td>
@@ -212,27 +202,15 @@
 						</div>
 
 					<?php endif; 
-				endif;
-				// hapus semua isi array class
-				unset($arrayClassTerima);
-				unset($arrayClassTolak); 
-
-				// // jika selesai aksi hitung, atur nilai setiap baris pada kolom hitung jadi 0
-				// $query= "SELECT * FROM tb_data";
-				// $reset_hitung=mysqli_query($db, $query);
-				// $i=1;
-				// // foreach
-				// foreach ($reset_hitung as $reset) { 
-				// 	$query = "UPDATE tb_data SET hitung = '0' WHERE id = $i";
-				// 	$update = mysqli_query($db,$query);
-				// 	$i++;
-				// }
-			?>
+				endif;	?>
+			</div>
 		</div>
 	</div>
-</div>
 </body>
+
 </html>
+
+
 <?php require('config/script.php');
 
 // controller

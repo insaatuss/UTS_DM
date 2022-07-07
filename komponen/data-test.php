@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#HitungData" style="font-size: 14px;">
+<button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#HitungData" style="font-size: 14px;">
   Hitung
 </button>
 
@@ -37,7 +37,7 @@
         </div>
         <div class="modal-footer justify-content-center">
 
-          <input type="submit" name="submit" value="Hitung" class="btn btn-info text-white col-11 p-2">
+          <input type="submit" name="submit" value="Hitung" class="btn btn-danger text-white col-11 p-2">
 
         </div>
       </div>

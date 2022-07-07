@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary  mb-3 float-left" data-bs-toggle="modal" data-bs-target="#TambahData" style="font-size: 14px;">
+<button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#TambahData" style="font-size: 14px;">
   Tambah Data
 </button>
 
@@ -29,7 +29,7 @@
           </div>
 
           <div class="form-group mb-1 d-flex align-items-center">
-            <label for="kategori" class="mb-2 col-3 pt-2 pb-2">Data kategori</label>
+            <label for="kategori" class="mb-2 col-3 pt-2 pb-2">kategori</label>
 
              <select id="kategori" class="form-control bg-light" name="kategori" required>
                 <option value="">- Pilih</option>
@@ -41,7 +41,7 @@
         </div>
         <div class="modal-footer justify-content-center">
 
-          <input type="submit" name="submit" value="Simpan" class="btn btn-info text-white col-11 p-2">
+          <input type="submit" name="submit" value="Simpan" class="btn btn-danger text-white col-11 p-2">
 
         </div>
       </div>

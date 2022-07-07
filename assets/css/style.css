@@ -1,19 +1,33 @@
 body{
 	font-family: "Candara";
 	color: #000000 ;
-	background-color: #F6F6F6;
+	background-color: #f5f5f5;
 }
-/*atur font size*/
+
+/*mengatur font size*/
 form, input, option,select, textarea{
 	font-size: 20px !important;
 }
-/*table*/
-table{
-	font-size: 14px;
-	font-weight: bolder;
+
+/*untuk table*/
+th{
+	background-color: #000000 !important;
+	vertical-align: middle;
+	color: #f5f5f5;
 }
-select, option{
-	cursor: pointer;
+
+tr {
+	font-weight: bold;
+}
+
+
+/*font untuk judul*/
+@media screen and (max-width: 578px){
+
+	#wrapper h2{
+		font-size: 18px;
+	}
+	
 }
 
 
