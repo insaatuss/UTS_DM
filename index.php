@@ -52,7 +52,7 @@
 									<td><?php echo $i++?></td>
 									<td><?php echo $data['data_x']?></td>
 									<td><?php echo $data['data_y']?></td>
-									<td <?php echo ($data['kategori']=="Terima") ? "style='background-color: #ffff; color: #20992C;'" : "style='background-color: #00000; color: #B52030'" ?>><?php echo $data['kategori']?></td>
+									<td <?php echo ($data['kategori']=="Terima") ? "style='background-color: #a5edb1; color: #20992C;'" : "style='background-color: #ffa7a7; color: #B52030'" ?>><?php echo $data['kategori']?></td>
 									
 									<td class="kategori">
 										<!-- Button trigger modal -->
@@ -156,7 +156,7 @@
 											<td><?php echo $batasK['data_x']?></td>
 											<td><?php echo $batasK['data_y']?></td>
 											<td><?php echo $batasK['hitung']?></td>
-											<td <?php echo ($batasK['kategori']=="Terima") ? "style='background-color: #ffff; color: #20992C;'" : "style='background-color: #00000; color: #B52030'" ?> > <?php echo $batasK['kategori']?></td>
+											<td <?php echo ($batasK['kategori']=="Terima") ? "style='background-color: #a5edb1; color: #20992C;'" : "style='background-color: #ffa7a7; color: #B52030'" ?> > <?php echo $batasK['kategori']?></td>
 										</tr>
 
 									<?php
@@ -194,7 +194,7 @@
 									<tr>
 										<td><?php echo $_POST['data_x2']?></td>
 										<td><?php echo $_POST['data_y2']?></td>
-										<td <?php echo ($kategori=="Terima") ? "style='background-color: #ffff; color: #20992C;'" : "style='background-color: #00000; color: #005fee'" ?> ><?php echo $kategori?></td>
+										<td <?php echo ($kategori=="Terima") ? "style='background-color: #a5edb1; color: #20992C;'" : "style='background-color: #ffa7a7; color: #B52030'" ?> ><?php echo $kategori?></td>
 									</tr>
 								</tbody>
 
